@@ -1,0 +1,16 @@
+.userMenu__container{
+  display: flex;
+  align-items: center;
+}
+.useMenu__title{
+  padding-top:5px ;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.outLogo{
+
+}
+.outLogo:hover{
+
+  fill:blue;
+}

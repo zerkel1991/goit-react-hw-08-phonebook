@@ -1,16 +1,21 @@
+import { Routes, Route } from 'react-router-dom';
+import { Layout } from './Layout/Layout';
+import { LoginPage } from './pages/LoginPage/LoginPage';
 import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter/Filter';
+import { RegisterPage } from './pages/RegisterPage/RegisterPage';
 
 const App = () => {
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h1>Contacts</h1>
-      <Filter />
-      <ContactList />
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route path="register" element={<RegisterPage />} />
+          <Route index element={<LoginPage />} />
+          <Route path="contacts" element={<ContactForm />} />
+          <Route path="*" element={<LoginPage  to='/login' replace/>} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 
