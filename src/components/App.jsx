@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/authOperations';
 
 const App = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
