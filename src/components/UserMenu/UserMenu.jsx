@@ -7,12 +7,12 @@ import { logOut } from 'redux/auth/authOperations';
 
 export const UserMenu = () => {
   const userName = useSelector(authSelectors.getUserName);
-
   const dispatch = useDispatch();
+
 
   return (
     <div className={s.userMenu__container}>
-      <h2 className={s.useMenu__title}>Welcome,{userName}!</h2>
+      <h2 className={s.useMenu__title}>Welcome, {userName}!</h2>
       <Button onClick={() => dispatch(logOut())} variant="primary">
         LogOut
       </Button>{' '}
