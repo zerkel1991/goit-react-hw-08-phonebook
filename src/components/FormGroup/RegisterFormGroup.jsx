@@ -4,10 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { register } from 'redux/auth/authOperations';
 
+
+
 function RegisterForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   const dispatch = useDispatch();
 
@@ -38,6 +41,7 @@ function RegisterForm() {
   };
 
   return (
+
     <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -74,6 +78,7 @@ function RegisterForm() {
         Submit
       </Button>
     </Form>
+
   );
 }
 

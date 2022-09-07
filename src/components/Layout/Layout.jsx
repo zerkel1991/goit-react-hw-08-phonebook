@@ -28,11 +28,11 @@ export const Layout = () => {
           <UserMenu />
         )}
       </header>
-      <main>
+      <main className={s.main}>
         <Outlet />
       </main>
-      <footer>
-        <span>2022</span>
+      <footer className={s.footer}>
+        <a className={s.footer__link} href="https://github.com/zerkel1991/goit-react-hw-08-phonebook">Made by Vaycheslav Ushakov</a>
       </footer>
     </>
   );

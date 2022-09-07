@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contactsApi';
-
+import { useDispatch } from 'react-redux';
+import { addContacts } from 'redux/contacts/ContactsAPI';
+import { useSelector } from 'react-redux';
+import s from './ContactForm.module.css'
 const ContactForm = () => {
+  const contacts = useSelector(state => state.contacts.contacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [addContact] = useAddContactMutation();
-  const { data } = useGetContactsQuery();
+  const dispatch = useDispatch();
 
   const handleNameChange = e => {
     setName(e.target.value);
@@ -14,26 +16,23 @@ const ContactForm = () => {
     setNumber(e.target.value);
   };
 
-  const onSubmitForm = async event => {
-    event.preventDefault();
-
-    const isDublicate = data.find(
-      el => el.name.toLowerCase() === name.toLowerCase()
-    );
-    if (isDublicate) {
-      alert(`${name} is already in contacts`);
-      setName('');
-      setNumber('');
-      return;
+  const handleSubmit = e => {
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === name.toLocaleLowerCase()
+      )
+    ) {
+      return alert(`"${name}" is already in contacts.`);
     }
-    await addContact({ name: name, number: number }).unwrap();
 
-    setName('');
-    setNumber('');
+    e.preventDefault();
+    dispatch(addContacts({ name, number }));
+    setName('')
+    setNumber('')
   };
 
   return (
-    <form onSubmit={onSubmitForm}>
+    <form onSubmit={handleSubmit}>
       <label>
         {' '}
         Name
@@ -61,7 +60,7 @@ const ContactForm = () => {
         />
       </label>
 
-      <button type="submit">Добавить</button>
+      <button className={s.btn}type="submit">add contact</button>
     </form>
   );
 };
