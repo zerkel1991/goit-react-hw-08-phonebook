@@ -1,5 +1,5 @@
 import { LoginPage } from '../pages/LoginPage/LoginPage';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink,Outlet } from 'react-router-dom';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';

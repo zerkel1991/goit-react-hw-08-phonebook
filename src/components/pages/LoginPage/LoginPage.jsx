@@ -2,11 +2,24 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import LoginFormGroup from '../../FormGroup/LoginFormGroup';
 import s from './LoginPage.module.css';
-
-
+import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/authSelectors';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 export const LoginPage = () => {
+const isLoggIn = useSelector(authSelectors.getIsLoggedIn)
+const navigate = useNavigate()
+
+  useEffect(() => {
+
+    if(isLoggIn){
+      navigate('/contacts')
+    }
+
+
+  }, [isLoggIn,navigate])
 
 
 

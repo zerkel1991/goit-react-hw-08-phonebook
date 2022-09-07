@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
-
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -9,6 +8,11 @@ import Button from 'react-bootstrap/Button';
 function BasicExample() {
 const [email,setEmail] = useState('admin@mail.con');
 const [password,setPassword] = useState('12345678');
+
+
+
+
+
 
 const dispatch = useDispatch()
 
